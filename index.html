@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>If/Else Condition</h1>
+    <style>
+        h1 {text-align: center;}
+    </style>
+
+    <form onsubmit="dosum();return false">
+        num: <input id="num1" type="number" required placeholder="Enter a Number" >
+        <br>
+        <br>
+        operation: <input id="operation" type="text" placeholder="Enter + - * /" required>
+        <br>
+        <br>
+        num: <input id="num2" type="number" placeholder="Enter a Number" required>
+        <button type="submit">submit</button>
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        function dosum() {
+            let firstNumber = Number(document.querySelector("#num1").value)
+            let secondNumber = +(document.querySelector("#num2").value)
+            let operation = (document.querySelector("#operation").value)
+
+            let resultElement = document.querySelector("#result")
+           if (operation === "+") {
+            resultElement.innerHTML = firstNumber + secondNumber;
+           }
+           else if(operation === "-"){
+            resultElement.innerHTML = firstNumber - secondNumber;
+           }
+           else if (operation === "*") {
+            resultElement.innerHTML = firstNumber * secondNumber;
+           }
+           else if (operation === "/") {
+                if (firstNumber === 0){
+                    resultElement.innerHTML = "Cannot be Divided by zero"
+                }
+                else {
+                    resultElement.innerHTML = firstNumber / secondNumber;
+                }
+           }
+           else {resultElement = "Invalid Operation... Please enter + - * / only"}
+        }
+    </script>
+</body>
+</html>
